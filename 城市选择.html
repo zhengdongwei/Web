@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test.html</title>   
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+  </head>  
+  <body>
+    
+    <form name="form">
+    <select name="province" onchange="changeCity()">
+     <option value="01">广东省</option>
+     <option value="02">湖北省</option>    
+    </select>
+    <select name="city">
+    <option>广州市</option>
+    <option>深圳市</option>
+    </select>
+   </form>
+   <script type="text/javascript">
+    function changeCity(){
+      var option01 = document.createElement("option");
+      option01.text="广州市";
+      option01.value="广州市";
+       var option02 = document.createElement("option");
+      option02.text="深圳市";
+      option02.value="深圳市";
+       var option03 = document.createElement("option");
+      option03.text="武汉市";
+      option03.value="武汉市";
+       var option04 = document.createElement("option");
+      option04.text="孝感市";
+      option04.value="孝感市";  
+      var length;
+      length = document.form.province.length;
+      for(var i=0;i<length;i++){
+        if(document.form.province[i].selected==true){
+        
+          for(var j = length-1;j>=0;j--){
+             document.form.city.remove(j);
+          }
+          if(document.form.province[i].value=="01"){
+             document.form.city.add(option01);
+             document.form.city.add(option02);
+          }
+          if(document.form.province[i].value=="02"){
+             document.form.city.add(option03);
+             document.form.city.add(option04);
+          }
+        }
+      
+      }
+       
+   }
+    </script>
+  </body>
+</html>
